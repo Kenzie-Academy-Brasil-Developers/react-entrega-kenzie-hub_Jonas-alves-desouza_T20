@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react'
-import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
+import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa'
 
 export const InputPassword = forwardRef(({ label, error, ...rest }, ref) => {
     const [isHidden, setHidden] = useState(false)

@@ -87,7 +87,7 @@ export const LoginForm = ({ setUser }) => {
             </div>
 
             <div className={`${styles.buttonBox}`}>
-                <p className='paragraph bold' >Ainda nao possui conta?</p>
+                <p className='paragraph bold' >Não tem uma conta ainda?</p>
                 <Link className='button bigger grey typoButton center' to='/register'>Cadastre-se</Link>
             </div>
             

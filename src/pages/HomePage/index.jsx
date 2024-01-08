@@ -1,4 +1,4 @@
-import { LoginForm } from '../../components/fragments/forms/LoginForm'
+import { LoginForm } from '../../components/fragments'
 import logo from '../../assets/Logo.svg'
 import styles from './style.module.scss'
 

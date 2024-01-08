@@ -3,47 +3,47 @@ import { z } from 'zod'
 export const registerFormSchema = z.object({
     name: z
         .string()
-        .min(1, 'Este Campo e obrigatorio.')
+        .min(1, 'Este campo é obrigatório.')
     ,
 
     email: z
         .string()
         .email('Forneca um E-Mail Valido.')
-        .min(1, 'Este Campo e obrigatorio.')
+        .min(1, 'Este campo é obrigatório.')
     ,
 
     password: z
         .string()
-        .min(8, 'Digite no minimo 8 caracters.')
-        .max(18, 'Digite no maximo 18 caracters.')
-        .regex(/[a-z]+/, 'E necessario conter pelo menos uma letra minuscula.')
-        .regex(/[A-Z]+/, 'E necessario conter pelo menos uma letra maiuscula.')
-        .regex(/[0-9]+/, 'E necessario conter pelo menos um numero.')
-        .regex(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/\|]+/, 'E nescessario conter pelo menos um caracter especial.')
+        .min(8, 'Insira pelo menos 8 caracteres.')
+        .max(18, 'Insira no máximo 18 caracteres.')
+        .regex(/[a-z]+/, 'Deve conter pelo menos uma letra minúscula.')
+        .regex(/[A-Z]+/, 'Deve conter pelo menos uma letra maiúscula.')
+        .regex(/[0-9]+/, 'Deve conter pelo menos um número.')
+        .regex(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/\|]+/, 'Deve conter pelo menos um caractere especial.')
     ,
 
     confirmPassword: z
         .string()
-        .min(1, 'Corfirmar a senha e obrigatorio.')
+        .min(1, 'Corfirmar a senha é obrigatorio.')
         .max(18, 'Digite no maximo 18 caracters.')
-        .regex(/[a-z]+/, 'E necessario conter pelo menos uma letra minuscula.')
-        .regex(/[A-Z]+/, 'E necessario conter pelo menos uma letra maiuscula.')
-        .regex(/[0-9]+/, 'E necessario conter pelo menos um numero.')
-        .regex(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/\|]+/, 'E nescessario conter pelo menos um caracter especial.')
+        .regex(/[a-z]+/, 'Deve conter pelo menos uma letra minúscula.')
+        .regex(/[A-Z]+/, 'Deve conter pelo menos uma letra maiúscula.')
+        .regex(/[0-9]+/, 'Deve conter pelo menos um número.')
+        .regex(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/\|]+/, 'Deve conter pelo menos um caractere especial.')
     ,
     bio: z
         .string()
-        .min(1, 'Este Campo e obrigatorio.') 
+        .min(1, 'Este campo é obrigatório.') 
 
     ,
 
     contact: z
         .string()
-        .min(1, 'Este Campo e obrigatorio.') 
+        .min(1, 'Este campo é obrigatório.') 
     ,
     course_module: z
         .string()
-        .min(1, 'Este Campo e obrigatorio.')
+        .min(1, 'Este campo é obrigatório.')
     ,
 })
 .refine(({ password, confirmPassword }) => password === confirmPassword, { 
