@@ -8,7 +8,7 @@ export const InputPassword = forwardRef(({ label, error, ...rest }, ref) => {
 
         <div>
 
-            <label>{label}</label>
+            <label className='typoLabel label' >{label}</label>
 
             <div>
                 <input
@@ -18,11 +18,11 @@ export const InputPassword = forwardRef(({ label, error, ...rest }, ref) => {
                     type={isHidden ? 'Text' : 'password'} 
                 />
                 <span onClick={()=> setHidden(!isHidden)}>
-                    {isHidden ? <FaRegEyeSlash /> :  <FaRegEye />}
+                    {isHidden ? <FaRegEyeSlash size={21} color='868E96'/> :  <FaRegEye size={21} color='868E96'/>}
                 </span>
             </div>
 
-            { error ? <p>{error.message}</p> : null }        
+            { error ? <p className='alert' >{error.message}</p> : null }        
         </div>
     )
 })

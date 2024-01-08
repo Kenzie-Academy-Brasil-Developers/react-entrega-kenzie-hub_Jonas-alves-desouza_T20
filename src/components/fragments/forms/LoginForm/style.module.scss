@@ -1,0 +1,42 @@
+.inputBox{
+    div{
+        margin-bottom: 22px;
+        div{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            width: 329.929px;
+            height: 48px;
+            margin-top: 12px;
+            
+            background: var(--grey-2, #343B41);
+            border-radius: 4px;
+            border: 1.218px solid var(--grey-0, #F8F9FA);
+
+            input{
+                width: 270px;
+                height: 22px;
+        
+                margin-left: 10px;
+          
+                background: var(--grey-2, #343B41);
+            }
+            span{
+                margin-left: 10px;
+            }
+        }
+    }
+}
+.buttonBox{
+    margin-top: 22px;
+
+    p{
+        margin-bottom: 22px;
+    }
+
+    Link:hover{
+        opacity: 50%;
+    }
+}

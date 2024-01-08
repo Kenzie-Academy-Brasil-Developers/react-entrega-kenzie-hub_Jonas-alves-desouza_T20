@@ -1,0 +1,53 @@
+@mixin defaultTypography($font-size: 1.125rem, $color: var(--grey-0), $font-weigth: 700){
+    color: $color;
+    font-family: var(--font-primary);
+    font-size: $font-size;
+    font-weight: $font-weigth;
+}
+
+.title{
+    @include defaultTypography();
+
+    &.center{
+        text-align: center;
+    } 
+
+}
+.alert{
+    @include defaultTypography($font-size: .7614rem, $color: var(--color-primary) ,$font-weigth: 400); 
+}
+
+.typoLabel{
+    @include defaultTypography($font-size: .7614rem, $font-weigth: 400); 
+}
+
+.typoInput{
+    @include defaultTypography($font-size: 1.0152rem, $font-weigth: 400);
+
+    &.login{
+        @include defaultTypography($color: var(--grey-0), $font-weigth: 400);
+    }
+    &.register{
+        @include defaultTypography($color: var(--grey-1), $font-weigth: 400);
+    }
+}
+
+.typoButton{
+    @include defaultTypography($font-size: 1rem, $color: var(--color-white), $font-weigth: 500);
+
+    &.smallerLetter{
+        @include defaultTypography($font-size: .75rem, $color: var(--grey-0), $font-weigth: 600);
+    }
+    &.center{
+        text-align: center;
+    }
+}
+.paragraph{
+    @include defaultTypography($font-size: 1rem, $color: var(--color-white), $font-weigth: 400);
+        &.bold{
+            @include defaultTypography($font-size: .75rem, $color: var(--grey-1), $font-weigth: 600);            
+        }&.light{
+            @include defaultTypography($font-size: .75rem, $color: var(--grey-1), $font-weigth: 400);
+        }
+}
+

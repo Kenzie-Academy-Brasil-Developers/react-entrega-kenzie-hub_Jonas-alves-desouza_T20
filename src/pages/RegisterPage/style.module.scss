@@ -1,0 +1,26 @@
+.registerTopBox{
+   margin-top: 20px;
+   margin-bottom: 22px;
+
+   display: flex;
+   justify-content: space-between;
+}
+.formRegisterbox{
+    display: inline-flex;
+    height: 800;
+    padding: 42px 22px;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    flex-shrink: 0;
+
+    border-radius: 4px;
+    background: var(--grey-3, #212529);
+    box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+
+    div{
+        h1{
+            margin-bottom: 22px;
+        }
+    }
+}

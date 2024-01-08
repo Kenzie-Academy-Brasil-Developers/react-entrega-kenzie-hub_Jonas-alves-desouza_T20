@@ -4,13 +4,13 @@ export const Input = forwardRef(({ label, error, ...rest }, ref) => {
     return(
 
         <div>
-            <label>{label}</label>
+            <label className='typoLabel label' >{label}</label>
 
             <div>
                 <input {...rest} ref={ref}/>
             </div>
 
-            { error ? <p>{error.message}</p> : null }        
+            { error ? <p className='alert'>{error.message}</p> : null }        
         </div>
     )
 })
