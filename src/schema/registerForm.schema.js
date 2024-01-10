@@ -47,10 +47,10 @@ export const registerFormSchema = z.object({
     ,
 })
 .refine(({ password, confirmPassword }) => password === confirmPassword, { 
-    message: 'As senha nao correspondem.',
+    message: 'As senha não correspondem.',
     path: ['confirmPassword'],
 })
 .refine(({name, password}) => !password.includes(name), {
-    message: 'A sunha senha nao pode ter seu nome.',
+    message: 'A sunha senha não pode ter seu nome.',
     path: ['password'],
 })

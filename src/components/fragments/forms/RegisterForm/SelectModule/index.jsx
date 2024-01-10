@@ -10,11 +10,11 @@ export const SelectModule = ({register, label}) => {
                     id='module' 
                 {...register('course_module') } 
                 >
-                    <option value='primeiro modulo'>primeiro modulo</option>
-                    <option value='segundo modulo'>segundo modulo</option>
-                    <option value='terceiro modulo'>terceiro modulo</option>
-                    <option value='quarto modulo'>quarto modulo</option>
-                    <option value='qauinto modulo'>qauinto modulo</option>
+                    <option value='primeiro  módulo'>primeiro  módulo</option>
+                    <option value='segundo  módulo'>segundo  módulo</option>
+                    <option value='terceiro  módulo'>terceiro  módulo</option>
+                    <option value='quarto  módulo'>quarto  módulo</option>
+                    <option value='qauinto  módulo'>qauinto  módulo</option>
                 </Select>
             </div>
         </div>

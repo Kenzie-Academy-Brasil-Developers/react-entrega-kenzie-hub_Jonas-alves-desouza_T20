@@ -2,8 +2,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
 
-import { Button, Input, InputPassword } from '../../index'
-import { registerFormSchema } from './registerForm.schema'
+import { Button, Input, InputPassword, NotifySucess, NotifyError } from '../../index'
+import { registerFormSchema } from '../../../../schema/index'
 import { api } from '../../../../services/index'
 import { SelectModule } from './SelectModule'
 
@@ -13,32 +13,7 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-const notifyError = ()=> {
 
-   toast.error('Algo deu errado!', {
-      position: "top-center",
-      autoClose: 0.3 * 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-}
-
-const notifySucess = ()=> {
-   toast.success('Login realizado com sucesso',{
-      position: "top-center",
-      autoClose: 0.3 * 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-   })
-}
 
 export const RegisterForm = () => {
 
@@ -50,11 +25,11 @@ export const RegisterForm = () => {
     const userRegister = async (payLoad)=>{
         try {
             const { data } = await api.post('/users', payLoad )
-            notifySucess()
+            NotifySucess()
             navigate('/')
         } catch (error) {
             console.log(error)
-            notifyError()
+            NotifyError()
         }
     }
     

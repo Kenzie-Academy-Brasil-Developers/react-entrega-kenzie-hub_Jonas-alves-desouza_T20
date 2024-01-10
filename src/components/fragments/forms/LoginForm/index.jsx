@@ -3,42 +3,17 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
-import { Button, Input, InputPassword } from '../../index'
-import { loginFormSchema } from './loginForm.schema'
+import { Button, Input, InputPassword, NotifySucess, NotifyError } from '../../index'
+import { loginFormSchema } from '../../../../schema/index'
 import { api } from '../../../../services/index'
 
 import styles from './style.module.scss'
 
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-const notifyError = ()=> {
 
-   toast.error('Algo deu errado!', {
-      position: "top-center",
-      autoClose: 0.3 * 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-}
-
-const notifySucess = ()=> {
-   toast.success('Login realizado com sucesso',{
-      position: "top-center",
-      autoClose: 0.3 * 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-   })
-}
 
 export const LoginForm = ({ setUser }) => {
 
@@ -52,11 +27,11 @@ export const LoginForm = ({ setUser }) => {
         try {
             const { data } = await api.post('/sessions', payLoad)
             setUser(data.user)
-            notifySucess()
+            NotifySucess()
             navigate('/user')
         } catch (error) {
             console.log(error)
-            notifyError()            
+            NotifyError()            
         }
     }
 
