@@ -1,6 +1,7 @@
 .inputBox{
     div{
         margin-top: 11px;
+        
         div{
             display: flex;
             align-items: center;
@@ -14,6 +15,9 @@
             border: 1.218px solid var(--grey-2, #343B41);
             background: var(--grey-2, #343B41);
             
+        }
+        span{
+            margin-left: 10px;
         }
     }
 }
