@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { Button, Input, InputPassword, NotifySucess, NotifyError } from '../../index'
 import { loginFormSchema } from '../../../../schema/index'
-import { api } from '../../../../services/index'
 
 import styles from './style.module.scss'
 
@@ -15,25 +14,11 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 
-export const LoginForm = ({ setUser }) => {
+export const LoginForm = ({ userLogin }) => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
         resolver: zodResolver(loginFormSchema)
     })
-    
-    const navigate = useNavigate()
-    
-    const userLogin = async (payLoad) => {
-        try {
-            const { data } = await api.post('/sessions', payLoad)
-            setUser(data.user)
-            NotifySucess()
-            navigate('/user')
-        } catch (error) {
-            console.log(error)
-            NotifyError()            
-        }
-    }
 
     const onSubmit = (payLood) => {
         userLogin(payLood)
