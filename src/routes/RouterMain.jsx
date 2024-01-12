@@ -3,6 +3,11 @@ import { useEffect, useState } from 'react'
 
 import { HomePage, NotFoundPage, RegisterPage, UserPage } from '../pages'
 import { api } from '../services'
+import { NotifyError, NotifySucess } from '../components/fragments'
+
+import React from 'react';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const RouterMain = () => {
     const localToken = localStorage.getItem('@TOKEN')
@@ -31,12 +36,12 @@ export const RouterMain = () => {
         try {
             const { data: { token }, } = await api.post('/sessions', payLoad)
             setToken(token)
+            NotifySucess()
             localStorage.setItem('@TOKEN', token)
             navigate('/user')
-            console.log('deu certo')
         } catch (error) {
             console.log(error)
-            console.log('deu errado')            
+            NotifyError()           
         }
     }
 

@@ -8,7 +8,7 @@ export const UserPage = ({user, userlogout}) => {
                 <div>
                     <div className={`${style.userSection}`}>
                         <div className='containerDefault'>
-                            <h2 className='title'>Ola, {user?.name}</h2>
+                            <h2 className='title'>Ola {user?.name}</h2>
                             <p className='paragraph light'>{user?.course_module}</p>
                         </div>
                     </div>
