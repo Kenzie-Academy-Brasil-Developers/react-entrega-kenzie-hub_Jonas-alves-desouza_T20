@@ -1,4 +1,4 @@
-import { RouterMain } from './routes/RouterMain'
+import { RouterMain } from './routes/index'
 import './style/index.scss'
  
 export const App = () => {

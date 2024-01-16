@@ -7,7 +7,7 @@ import { loginFormSchema } from '../../../../schema/index'
 
 import styles from './style.module.scss'
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserContext } from '../../../../providers/UserContext'
@@ -15,6 +15,8 @@ import { UserContext } from '../../../../providers/UserContext'
 
 
 export const LoginForm = () => {
+    const [loading, setLoading] = useState(false)
+
     const { userLogin } = useContext(UserContext)
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
@@ -22,7 +24,7 @@ export const LoginForm = () => {
     })
 
     const onSubmit = (payLood) => {
-        userLogin(payLood)
+        userLogin(payLood, setLoading)
     }
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -43,7 +45,7 @@ export const LoginForm = () => {
                     {...register('password')}
                 />
                 
-                <Button className='button bigger pink typoButton center' type='submit'>Entrar</Button>
+                <Button className='button bigger pink typoButton center' type='submit'>{loading ? 'Loading...' : 'Login'}</Button>
             </div>
 
             <div className={`${styles.buttonBox}`}>

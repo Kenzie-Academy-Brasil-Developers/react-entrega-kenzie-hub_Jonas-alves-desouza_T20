@@ -29,8 +29,9 @@ export const UserProvider = ({children}) => {
         loadUser()
     }, [])
    
-    const userLogin = async (payLoad) => {
+    const userLogin = async (payLoad, setLoading) => {
         try {
+            setLoading(true)
             const { data: { token }, } = await api.post('/sessions', payLoad)
             NotifySucess()
             setToken(token)
@@ -39,6 +40,8 @@ export const UserProvider = ({children}) => {
         } catch (error) {
             console.log(error)
             NotifyError()           
+        }finally{
+            setLoading(false)
         }
     }
 
