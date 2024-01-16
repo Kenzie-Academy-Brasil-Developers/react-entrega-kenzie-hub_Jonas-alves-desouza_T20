@@ -1,8 +1,8 @@
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-export const NotifySucess = ()=> {
-    toast.success('Login realizado com sucesso',{
+export const NotifySucess = (message)=> {
+    toast.success(message,{
        position: 'top-center',
        autoClose: 0.3 * 1000,
        hideProgressBar: false,

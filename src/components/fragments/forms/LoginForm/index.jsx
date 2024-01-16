@@ -8,7 +8,6 @@ import { loginFormSchema } from '../../../../schema/index'
 import styles from './style.module.scss'
 
 import React, { useContext, useState } from 'react';
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserContext } from '../../../../providers/UserContext'
 

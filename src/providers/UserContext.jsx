@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { NotifyError, NotifySucess } from '../components/fragments/index'
 import { api } from '../services'
 
-export const UserContext = createContext([])
+export const UserContext = createContext({})
 
 export const UserProvider = ({children}) => {
     const [loading, setLoading] = useState(false)
@@ -12,10 +12,10 @@ export const UserProvider = ({children}) => {
     const localToken = localStorage.getItem('@TOKEN')
     const [token, setToken] = useState(localToken ? localToken : '')
     const [user, setUser] = useState(null)
-
+    
     const headers = { headers: { Authorization: `Bearer ${token}` } }
     
-    const navigate = useNavigate()
+    const navigate = useNavigate('')
     const pathName = window.location.pathname
     
     useEffect(() => {
@@ -39,14 +39,19 @@ export const UserProvider = ({children}) => {
     const userLogin = async (payLoad, setLoading) => {
         try {
             setLoading(true)
-            const { data: { token }, } = await api.post('/sessions', payLoad)
-            localStorage.setItem('@TOKEN', token)
-            setToken(token)
-            NotifySucess()
+
+            const { data } = await api.post('/sessions', payLoad)
+
+            localStorage.setItem('@TOKEN', data.token)
+            setToken(data.token)
+            
+            console.log(data)
+            setUser(data.user)
+            NotifySucess('Login Realizado com sucesso!')
             navigate('/user')
         } catch (error) {
             console.log(error)
-            NotifyError()           
+            NotifyError('Usuario ou senha invalido!')           
         }finally{
             setLoading(false)
         }
@@ -64,10 +69,10 @@ export const UserProvider = ({children}) => {
             const { data } = await api.post('/users', payLoad )
             reset()
             navigate('/')
-            NotifySucess()
+            NotifySucess('Usuario cadastrado com sucesso!')
         } catch (error) {
             console.log(error)
-            NotifyError()
+            NotifyError('Infelizmente algo deu errado! ')
         }finally{
             setLoading(false)
         }

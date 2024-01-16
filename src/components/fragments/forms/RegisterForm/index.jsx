@@ -86,11 +86,9 @@ export const RegisterForm = () => {
                     error={errors.selectModule}
                     register={register}
                 />    
-
                 
                 <Button className='button bigger pinkDisable typoButton center' type='submit'>{loading ? 'Cadastrando' : 'Cadastre-se'}</Button>
                  
-
             </div>
 
             {userRegister ? NotifySucess : NotifyError}
