@@ -20,7 +20,9 @@ export const UserProvider = ({children}) => {
             if(!token) return navigate('/')
             try {
                 const { data } = await api.get('/profile', { ...headers }) 
-                setUser(data)              
+
+                setUser(data)
+                navigate('/user')              
             } catch (error) {
                 console.log(error)                
             }
