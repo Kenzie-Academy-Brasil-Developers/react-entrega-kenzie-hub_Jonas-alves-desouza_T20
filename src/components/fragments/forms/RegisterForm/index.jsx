@@ -1,42 +1,29 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useNavigate } from 'react-router-dom'
 
 import { Button, Input, InputPassword, NotifySucess, NotifyError } from '../../index'
 import { registerFormSchema } from '../../../../schema/index'
-import { api } from '../../../../services/index'
 import { SelectModule } from './SelectModule'
 
 import style from './style.module.scss'
 
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { UserContext } from '../../../../providers/UserContext'
 
 
 
 export const RegisterForm = () => {
+    const { userRegister } = useContext(UserContext)
+    const [loading, setLoading] = useState(false)
 
-    const { register, handleSubmit, formState: { errors }, } = useForm({
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm({
         resolver: zodResolver(registerFormSchema)
     })
     
-    
-    const userRegister = async (payLoad)=>{
-        try {
-            const { data } = await api.post('/users', payLoad )
-            NotifySucess()
-            navigate('/')
-        } catch (error) {
-            console.log(error)
-            NotifyError()
-        }
-    }
-    
-    const navigate = useNavigate()
-
     const onSubmit = (payLoad) => {
-        userRegister(payLoad)
+        userRegister(payLoad, setLoading, reset)
     }
 
       return(
@@ -102,13 +89,15 @@ export const RegisterForm = () => {
                 />    
 
                 
-                <Button className='button bigger pinkDisable typoButton center' type='submit'>Cadastrar</Button>
+                <Button className='button bigger pinkDisable typoButton center' type='submit'>{loading ? 'Cadastrando' : 'Cadastre-se'}</Button>
                  
 
             </div>
 
+            {userRegister ? NotifySucess : NotifyError}
+
             <ToastContainer
-                position="top-center"
+                position='top-center'
                 autoClose={0.3 * 1000}
                 hideProgressBar={false}
                 newestOnTop={false}
@@ -117,7 +106,7 @@ export const RegisterForm = () => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="light"
+                theme='light'
             />
         </form>
     )

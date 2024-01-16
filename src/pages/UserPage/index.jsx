@@ -1,10 +1,15 @@
+import { useContext, useState } from 'react'
 import { DefaultTemplade } from '../../components/DefaultTemplade'
 import style from './style.module.scss'
+import { UserContext } from '../../providers/UserContext'
 
-export const UserPage = ({user, userlogout}) => {
+
+export const UserPage = () => {
+    const { user } = useContext(UserContext)
+
     return(
         <>
-            <DefaultTemplade userlogout={userlogout}>
+            <DefaultTemplade>
                 <div>
                     <div className={`${style.userSection}`}>
                         <div className='containerDefault'>

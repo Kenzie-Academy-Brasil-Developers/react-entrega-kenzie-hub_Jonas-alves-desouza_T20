@@ -1,20 +1,21 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 
-import { Button, Input, InputPassword, NotifySucess, NotifyError } from '../../index'
+import { Button, Input, InputPassword } from '../../index'
 import { loginFormSchema } from '../../../../schema/index'
 
 import styles from './style.module.scss'
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { UserContext } from '../../../../providers/UserContext'
 
 
 
-export const LoginForm = ({ userLogin }) => {
+export const LoginForm = () => {
+    const { userLogin } = useContext(UserContext)
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
         resolver: zodResolver(loginFormSchema)
@@ -47,13 +48,15 @@ export const LoginForm = ({ userLogin }) => {
 
             <div className={`${styles.buttonBox}`}>
                 <p className='paragraph bold' >Não tem uma conta ainda?</p>
-                <Link className='button bigger grey typoButton center' to='/register'>Cadastre-se</Link>
+                <Link 
+                className='button bigger grey typoButton center' 
+                to='/register'>
+                    Cadastre-se
+                </Link>
             </div>
-
-            {userLogin ? NotifySucess : NotifyError}
-            
+                       
             <ToastContainer
-                position="top-center"
+                position='top-center'
                 autoClose={0.3 * 1000}
                 hideProgressBar={false}
                 newestOnTop={false}
@@ -62,7 +65,7 @@ export const LoginForm = ({ userLogin }) => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="light"
+                theme='light'
             />
         </form>
     )

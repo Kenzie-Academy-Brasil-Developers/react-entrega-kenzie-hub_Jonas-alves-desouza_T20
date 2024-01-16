@@ -7,7 +7,7 @@ export const NotFoundPage = () => {
         <>
             <header className='containerDefault'>
                 <div className={style.headerBox}>
-                    <img src={Logo} alt="Logo Kenzie Hub " />
+                    <img src={Logo} alt='Logo Kenzie Hub ' />
                     <Link
                         className='typoButton smallerLetter center button smaller ' 
                         to='/'>

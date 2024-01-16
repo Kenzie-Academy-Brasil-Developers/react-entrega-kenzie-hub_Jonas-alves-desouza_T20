@@ -1,11 +1,10 @@
-import { Select } from '../../..'
-
 export const SelectModule = ({register, label}) => {
     return(
         <div>
             <label className='typoLabel label'>{label}</label>
             <div>
-                <Select 
+                <select 
+                    className='typoInput register'
                     name='module' 
                     id='module' 
                 {...register('course_module') } 
@@ -15,7 +14,7 @@ export const SelectModule = ({register, label}) => {
                     <option value='terceiro  módulo'>terceiro  módulo</option>
                     <option value='quarto  módulo'>quarto  módulo</option>
                     <option value='qauinto  módulo'>qauinto  módulo</option>
-                </Select>
+                </select>
             </div>
         </div>
     )
