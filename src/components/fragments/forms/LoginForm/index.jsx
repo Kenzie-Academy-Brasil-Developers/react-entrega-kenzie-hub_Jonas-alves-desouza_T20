@@ -57,18 +57,6 @@ export const LoginForm = () => {
                 </Link>
             </div>
                        
-            <ToastContainer
-                position='top-center'
-                autoClose={0.3 * 1000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme='light'
-            />
         </form>
     )
 }

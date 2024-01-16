@@ -8,7 +8,6 @@ import { SelectModule } from './SelectModule'
 import style from './style.module.scss'
 
 import React, { useContext, useState } from 'react';
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserContext } from '../../../../providers/UserContext'
 
@@ -96,18 +95,6 @@ export const RegisterForm = () => {
 
             {userRegister ? NotifySucess : NotifyError}
 
-            <ToastContainer
-                position='top-center'
-                autoClose={0.3 * 1000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme='light'
-            />
         </form>
     )
 }

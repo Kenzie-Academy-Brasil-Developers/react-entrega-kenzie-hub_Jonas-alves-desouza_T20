@@ -8,10 +8,12 @@ export const RouterMain = () => {
         <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/register' element={<RegisterPage />} />
+
             <Route element={<PrivateRoutes />} >
                 <Route path='/user' element={<UserPage />} />
                 <Route path='/profile' element={<ProfilePage />} />
             </Route>
+            
             <Route path='*' element={<NotFoundPage />} />
         </Routes>
     )

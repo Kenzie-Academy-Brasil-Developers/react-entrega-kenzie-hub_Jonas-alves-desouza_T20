@@ -23,7 +23,6 @@ export const UserProvider = ({children}) => {
             if(!token) return navigate('/')
             try {
                 setLoading(true)
-
                 const { data } = await api.get('/profile', { ...headers }) 
                 setUser(data)
                 navigate(pathName)              
@@ -41,9 +40,9 @@ export const UserProvider = ({children}) => {
         try {
             setLoading(true)
             const { data: { token }, } = await api.post('/sessions', payLoad)
-            NotifySucess()
-            setToken(token)
             localStorage.setItem('@TOKEN', token)
+            setToken(token)
+            NotifySucess()
             navigate('/user')
         } catch (error) {
             console.log(error)
