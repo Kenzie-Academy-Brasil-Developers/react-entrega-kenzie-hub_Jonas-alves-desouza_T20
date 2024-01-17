@@ -45,7 +45,6 @@ export const UserProvider = ({children}) => {
             localStorage.setItem('@TOKEN', data.token)
             setToken(data.token)
             
-            console.log(data)
             setUser(data.user)
             NotifySucess('Login Realizado com sucesso!')
             navigate('/user')
