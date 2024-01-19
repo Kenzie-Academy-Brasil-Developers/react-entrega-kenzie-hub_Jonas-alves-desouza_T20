@@ -12,7 +12,7 @@ export const Header = () => {
             <div className={style.headerBox}>
                 <img src={Logo} alt='Logo Kenzie Hub ' />
                 <Button
-                    className='typoButton smallerLetter center button smaller ' 
+                    className='typoButton smallerLetter center button smaller' 
                     onClick={userLogout} >
                     Sair
                 </Button>

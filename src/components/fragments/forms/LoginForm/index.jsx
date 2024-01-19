@@ -18,12 +18,12 @@ export const LoginForm = () => {
 
     const { userLogin } = useContext(UserContext)
 
-    const { register, handleSubmit, formState: { errors }, } = useForm({
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm({
         resolver: zodResolver(loginFormSchema)
     })
 
-    const onSubmit = (payLood) => {
-        userLogin(payLood, setLoading)
+    const onSubmit = (payLoad) => {
+        userLogin(payLoad, setLoading, reset)
     }
     return(
         <form onSubmit={handleSubmit(onSubmit)}>

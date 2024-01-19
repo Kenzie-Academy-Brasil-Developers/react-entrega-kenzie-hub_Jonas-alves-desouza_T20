@@ -14,13 +14,13 @@ import { UserContext } from '../../../../providers/UserContext'
 
 
 export const RegisterForm = () => {
-    const { userRegister } = useContext(UserContext)
-    const [loading, setLoading] = useState(false)
-
+    
     const { register, handleSubmit, reset, formState: { errors }, } = useForm({
         resolver: zodResolver(registerFormSchema)
     })
     
+    const [loading, setLoading] = useState(false)
+    const { userRegister } = useContext(UserContext)
     const onSubmit = (payLoad) => {
         userRegister(payLoad, setLoading, reset)
     }
@@ -84,14 +84,12 @@ export const RegisterForm = () => {
                 <SelectModule
                     label='Selecione modulo:'
                     error={errors.selectModule}
-                    register={register}
+                    {...register('course_module')}
                 />    
                 
                 <Button className='button bigger pinkDisable typoButton center' type='submit'>{loading ? 'Cadastrando' : 'Cadastre-se'}</Button>
                  
             </div>
-
-            {userRegister ? NotifySucess : NotifyError}
 
         </form>
     )

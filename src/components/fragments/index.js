@@ -5,5 +5,15 @@ import { LoginForm } from './forms/LoginForm';
 import { RegisterForm } from './forms/RegisterForm';
 import { NotifySucess } from './notyfys/NotifSucesss/index.';
 import { NotifyError } from './notyfys/NotyError';
+import { ListTechology } from './ListTechnology';
 
-export { Button, Input, InputPassword, LoginForm, RegisterForm, NotifySucess, NotifyError}
+export { 
+    Button, 
+    Input, 
+    InputPassword, 
+    LoginForm, 
+    RegisterForm, 
+    NotifySucess, 
+    NotifyError,
+    ListTechology,
+}

@@ -2,10 +2,13 @@ import { useContext, useState } from 'react'
 import { DefaultTemplade } from '../../components/DefaultTemplade'
 import style from './style.module.scss'
 import { UserContext } from '../../providers/UserContext'
+import { ListTechology } from '../../components/fragments'
+import { RegisterTechModal } from '../../components/fragments/modals/RegisterTechModal'
 
 
 export const UserPage = () => {
     const { user } = useContext(UserContext)
+    const [isOpen, setIsOpen] = useState(false)
 
     return(
         <>
@@ -18,10 +21,12 @@ export const UserPage = () => {
                         </div>
                     </div>
                     <div className='containerDefault'>
-                        <h3 className='title'>Que pena! Estamos em desenvolvimento :(</h3>
-                        <p className='paragraph'>Nossa aplicacao esta em desenvolvimento, em breve teremos novidades</p>
+                        <ListTechology setIsOpen={setIsOpen} />
                     </div>
                 </div>
+                {
+                    isOpen ? <RegisterTechModal setIsOpen={setIsOpen} /> : null
+                }
             </DefaultTemplade>
         </>
     )

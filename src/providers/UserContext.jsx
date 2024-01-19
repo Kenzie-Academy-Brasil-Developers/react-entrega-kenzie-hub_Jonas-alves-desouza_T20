@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import { NotifyError, NotifySucess } from '../components/fragments/index'
 import { api } from '../services'
@@ -15,12 +15,13 @@ export const UserProvider = ({children}) => {
     
     const headers = { headers: { Authorization: `Bearer ${token}` } }
     
-    const navigate = useNavigate('')
+    const navigate = useNavigate()
+    const { state } = useLocation()
     const pathName = window.location.pathname
     
     useEffect(() => {
         const loadUser = async () => {
-            if(!token) return navigate('/')
+            if(!token) return 
             try {
                 setLoading(true)
                 const { data } = await api.get('/profile', { ...headers }) 
@@ -36,18 +37,18 @@ export const UserProvider = ({children}) => {
         loadUser()
     }, [])
    
-    const userLogin = async (payLoad, setLoading) => {
+    const userLogin = async (payLoad, setLoading, reset) => {
         try {
             setLoading(true)
 
             const { data } = await api.post('/sessions', payLoad)
-
             localStorage.setItem('@TOKEN', data.token)
             setToken(data.token)
-            
             setUser(data.user)
+            
+            reset()
             NotifySucess('Login Realizado com sucesso!')
-            navigate('/user')
+            navigate(state?.lastRoute ? state.lastRoute : '/user')
         } catch (error) {
             console.log(error)
             NotifyError('Usuario ou senha invalido!')           
@@ -66,6 +67,7 @@ export const UserProvider = ({children}) => {
         try {
             setLoading(true)
             const { data } = await api.post('/users', payLoad )
+
             reset()
             navigate('/')
             NotifySucess('Usuario cadastrado com sucesso!')
