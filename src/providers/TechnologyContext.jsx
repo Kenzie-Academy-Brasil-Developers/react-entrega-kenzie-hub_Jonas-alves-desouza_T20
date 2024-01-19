@@ -35,7 +35,7 @@ export const TechnologyProvider = ({ children }) => {
         }
     }
 
-    const techUpdate = async (payload, setLoading, reset) => {
+    const techUpdate = async (payload, setLoading) => {
         try {
             setLoading(true)
             const token = localStorage.getItem('@TOKEN')

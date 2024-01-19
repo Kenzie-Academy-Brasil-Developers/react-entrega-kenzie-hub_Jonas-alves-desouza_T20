@@ -7,6 +7,7 @@ import { SelectLevelTech } from './SelectLevelTech'
 import { TechnologyContext } from '../../../../providers'
 import { Input } from '../../index'
 import { registerTechSchema } from '../../../../schema'
+import { useKeydown, useOutclick } from '../../../../hooks'
 
 export const RegisterTechModal = ({setIsOpen}) => {
     const { techRegister } = useContext(TechnologyContext)
@@ -15,13 +16,25 @@ export const RegisterTechModal = ({setIsOpen}) => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm({
         resolver: zodResolver(registerTechSchema)
     })
+
+    const closeModalOutClick = useOutclick(()=> {
+        setIsOpen(false)      
+     })
+  
+     const closeModalKeyDownEsque = useKeydown(()=>{
+        setIsOpen(false)
+     })
+    
+
     const onSubmit = (payLoad) => {
         techRegister(payLoad, setLoading, reset)
         setIsOpen(false)
     }
     return(
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div ref={closeModalOutClick}>
+            <form 
+            onSubmit={handleSubmit(onSubmit)}
+            >
                 <div>
                     <h5 className='title'>Cadastrar Tecnologia</h5>
                     <Button  className='typoButton smallerLetter center button smaller'
@@ -47,7 +60,12 @@ export const RegisterTechModal = ({setIsOpen}) => {
                 />
                 </div>
 
-                <Button className='button bigger pink typoButton center' type='submit' >{ loading ? 'Cadastrando...' : 'Cadastrar Tecnologia' }</Button>
+                <Button 
+                    className='button bigger pink typoButton center' 
+                    type='submit' 
+                >
+                    { loading ? 'Cadastrando...' : 'Cadastrar Tecnologia' }
+                </Button>
             </form>
         </div>
     )
