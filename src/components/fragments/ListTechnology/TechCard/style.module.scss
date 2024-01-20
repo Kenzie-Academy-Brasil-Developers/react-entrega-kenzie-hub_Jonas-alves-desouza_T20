@@ -2,8 +2,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
 
     width: 100%;
     max-width: 78.125rem;
@@ -13,10 +11,32 @@
     border-radius: 4px;
     background: var(--grey-4);
 
-    div{
+    @media(max-width: 348px){
+        display: flex;    
+    }
+}
+.techInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+    h4{
+        margin-left: 22px;
+    }
+    @media(max-width: 348px){
+        display: grid;
         h4{
-            margin-left: 22px;
+            margin-top: 5px;
         }
+        p{
+            margin-left: 22px;
+        }       
+    }
+    @media(max-width: 290px){    
+        p{
+            margin-top: 7px;
+        } 
     }
 }
 .sectionEditTech{   
@@ -24,7 +44,6 @@
     display: flex;
     flex-direction: row;
     align-items: center; 
-    p{
-        margin-right: 11px;
-    }   
+    margin-left: 22px;
+
 }

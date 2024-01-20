@@ -12,7 +12,7 @@ export const RegisterPage = () => {
             <div>
                 <div className={`${style.registerTopBox}`}>
                     <img className='logo' src={ Logo } alt='Logo Kenzie Hub' />
-                    <Link className='button smaller typoButton smallerLetter center' to='/'>Voltar</Link>
+                    <Link className='button middle typoButton smallerLetter center' to='/'>Voltar</Link>
                 </div>
                 <div className={`${style.formRegisterbox} container`}>
                     <div>

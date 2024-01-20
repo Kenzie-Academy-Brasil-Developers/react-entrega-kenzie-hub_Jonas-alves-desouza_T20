@@ -14,11 +14,11 @@ export const TechCard = ({ tech }) => {
     return(
         <li>
             <div className={`${style.cardContainer}`}>
-                <div>
+                <div className={`${style.techInfo}`}>
                     <h4 className='title light' >{tech.title}</h4>
+                    <p className='paragraph light'>{tech.status}</p>
                 </div>
                 <div className={`${style.sectionEditTech}`}>
-                    <p className='paragraph light'>{tech.status}</p>
                     <Button 
                         onClick={()=> {
                             setIsOpen(true)

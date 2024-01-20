@@ -15,6 +15,15 @@
             border-radius: 4px;
             border: 1.218px solid var(--grey-0, #F8F9FA);
 
+            @media(max-width: 400px){
+                width: 264.658px;
+                height: 38.504px;
+            }
+            @media(max-width: 345px){
+                width: 230px;
+                height: 34,6536px;
+            }
+
             input{
                 width: 270px;
                 height: 22px;
@@ -22,9 +31,25 @@
                 margin-left: 10px;
           
                 background: var(--grey-2, #343B41);
+
+                @media(max-width: 400px){
+                    width: 210px;
+                    height: 21.659px;
+                }
+                @media(max-width: 345px){
+                    width: 185px;
+                    height: 19,4931px;
+                }
             }
             span{
                 margin-left: 10px;
+
+                @media(max-width: 400px){
+                    margin-left: 5px;
+                }
+                @media(max-width: 345px){
+                    margin-left: 0px;
+                }
             }
         }
     }
@@ -38,5 +63,9 @@
 
     Link:hover{
         opacity: 50%;
+    }
+
+    @media(max-width: 400px){
+        margin-top: 11px;
     }
 }

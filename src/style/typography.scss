@@ -7,11 +7,14 @@
 
 .title{
     @include defaultTypography();
-
+    
     &.center{
         text-align: center;
     }
     &.light{
+        @media(max-width: 290px){
+            font-size: 11px;
+        }
         @include defaultTypography($font-size: .875rem, $font-weigth: 700)
     } 
 
@@ -50,7 +53,13 @@
         &.bold{
             @include defaultTypography($font-size: .75rem, $color: var(--grey-1), $font-weigth: 600);            
         }&.light{
-            @include defaultTypography($font-size: .75rem, $color: var(--grey-1), $font-weigth: 400);
+            @media(max-width: 290px){
+                font-size: 9px;
+            }
+            @include defaultTypography(
+                $font-size: .75rem,
+                $color: var(--grey-1),
+                $font-weigth: 400);
         }
 }
 

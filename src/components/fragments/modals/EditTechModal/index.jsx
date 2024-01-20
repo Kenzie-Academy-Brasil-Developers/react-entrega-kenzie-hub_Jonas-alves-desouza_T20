@@ -49,7 +49,7 @@ export const EditTechModal = ({setIsOpen}) => {
                 ref={closeModalOutClick}
                 >
                 <div className={`${style.topModal}`}>
-                    <h5 className='title'>Editar Tecnologia</h5>
+                    <h5 className='title light'>Editar Tecnologia</h5>
                     <Button  
                         onClick={()=> 
                             setIsOpen(false)}
