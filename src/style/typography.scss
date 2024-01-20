@@ -10,6 +10,9 @@
 
     &.center{
         text-align: center;
+    }
+    &.light{
+        @include defaultTypography($font-size: .875rem, $font-weigth: 700)
     } 
 
 }

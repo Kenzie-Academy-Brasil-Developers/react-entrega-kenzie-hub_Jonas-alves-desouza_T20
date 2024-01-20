@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 export const SelectLevelTech = forwardRef(({ label, errors, ...rest }, ref) => {
     return(
         <div>
-            <label className='typoLabel label'>{label}</label>
+            <label className='typoLabel'>{label}</label>
             <div>
                 <select 
                     className='typoInput register'
@@ -22,8 +22,8 @@ export const SelectLevelTech = forwardRef(({ label, errors, ...rest }, ref) => {
                         Avancado
                     </option>
                 </select>
-                { errors ? <p className='alert'>{errors.message}</p> : null } 
             </div>
+                { errors ? <p className='alert'>{errors.message}</p> : null } 
         </div>
     )
 })

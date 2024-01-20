@@ -2,6 +2,9 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useState } from 'react'
 
+import style from './style.module.scss'
+import { AiOutlineClose } from 'react-icons/ai'
+
 import { Button } from '../../Button'
 import { SelectLevelTech } from './SelectLevelTech'
 import { TechnologyContext } from '../../../../providers'
@@ -31,41 +34,58 @@ export const RegisterTechModal = ({setIsOpen}) => {
         setIsOpen(false)
     }
     return(
-        <div ref={closeModalOutClick}>
+        <div
+            role='dialog' 
+            className={`${style.modalOverlay}`}
+        >
             <form 
-            onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)}
+                className={`${style.modalBox}`}
+                ref={closeModalOutClick}
             >
-                <div>
-                    <h5 className='title'>Cadastrar Tecnologia</h5>
-                    <Button  className='typoButton smallerLetter center button smaller'
-                     onClick={()=> setIsOpen(false)} >
-                        Fechar
+                <div className={`${style.topModal}`}>
+                    <h5 className='title light'>Cadastrar Tecnologia</h5>
+                    <Button
+                        onClick={()=> setIsOpen(false)} 
+                    >
+                        <AiOutlineClose size={16} color='868E96' />
                     </Button>
                 </div>
-                <div>
-                <Input
-                    className='typoInput register'
-                    label='Nome:'
-                    type='text' 
-                    error={errors.title}
-                    placeholder='Digite a tecnologia...'
-                    {...register('title')} 
+                <div className={`${style.middleModal}`}>
+                    <div className={`${style.inputBox}`}>
+                        <Input
+                            className='typoInput register'
+                            label='Nome:'
+                            type='text' 
+                            error={errors.title}
+                            placeholder='Digite a tecnologia...'
+                            {...register('title')} 
+                            />
 
-                    />
+                        <SelectLevelTech 
+                            label='Selecione o Nivel:'
+                            errors={errors}
+                            {...register('status')}
+                        />
+                    </div>
 
-                <SelectLevelTech 
-                    label='Selecione o Nivel:'
-                    errors={errors}
-                    {...register('status')}
-                />
+                    <div>
+                        <Button 
+                            className={`
+                                button 
+                                bigger
+                                pink
+                                typoButton
+                                center 
+                                ${style.buttonBox}
+                                `} 
+                            type='submit'
+                            
+                        >
+                            { loading ? 'Cadastrando...' : 'Cadastrar Tecnologia' }
+                        </Button>
+                    </div>
                 </div>
-
-                <Button 
-                    className='button bigger pink typoButton center' 
-                    type='submit' 
-                >
-                    { loading ? 'Cadastrando...' : 'Cadastrar Tecnologia' }
-                </Button>
             </form>
         </div>
     )

@@ -16,6 +16,11 @@
             background: var(--grey-2, #343B41);
             
         }
+        select{
+            width: 18.75rem;
+            height: 1.6875rem;
+            flex-shrink: 0;
+        }
         span{
             margin-left: 10px;
         }

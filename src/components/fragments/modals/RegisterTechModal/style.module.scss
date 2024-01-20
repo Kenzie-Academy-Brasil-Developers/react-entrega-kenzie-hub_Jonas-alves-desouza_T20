@@ -1,0 +1,91 @@
+.modalOverlay{
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 0, 0, .3);
+
+}
+.modalBox{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+
+    border-radius: 4px;
+    background: var(--grey-3, #212529);
+    box-shadow: 0rem .25rem 2.5rem -0.625rem rgba(0, 0, 0, 0.25);
+}
+.topModal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 23.4375rem;
+    padding: .75rem 1.25rem;
+
+    background: var(--grey-2);
+    border-radius: .25rem .25rem 0rem 0rem;
+
+    Button:hover{
+        color: var(--grey-0);
+    }
+}
+.middleModal{
+    display: inline-flex;
+    padding: 0px 1.375rem 2rem 1.375rem;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inputBox{
+    div{
+        
+        margin-top: 15px;
+        margin-bottom: 15px;
+        
+        div{
+            
+            display: flex;
+            width: 20.6206rem;
+            height: 3rem;
+            padding: 0rem 1.0152rem;
+            align-items: center;
+            gap: .6345rem;
+            flex-shrink: 0;
+            
+            background: var(--grey-2, #343B41);
+            border-radius: .25rem;
+            border: .0761rem solid var(--grey-0, #F8F9FA);
+
+            input{
+                width: 16.875rem;
+                height: 1.375rem;
+                  
+                background: var(--grey-2, #343B41);
+            }
+            select{
+                width: 18.75rem;
+                height: 1.6875rem;
+                flex-shrink: 0;
+            }
+        }
+    }
+}
+.buttonBox{
+    margin-top: 1.375rem;
+
+    p{
+        margin-bottom: 1.375rem;
+    }
+
+    Link:hover{
+        opacity: 50%;
+    }
+}

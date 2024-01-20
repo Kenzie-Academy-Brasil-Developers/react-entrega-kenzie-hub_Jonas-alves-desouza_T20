@@ -7,7 +7,7 @@ import { SelectModule } from './SelectModule'
 
 import style from './style.module.scss'
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react' 
 import 'react-toastify/dist/ReactToastify.css'
 import { UserContext } from '../../../../providers/UserContext'
 

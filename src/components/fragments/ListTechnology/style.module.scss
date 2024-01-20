@@ -1,0 +1,24 @@
+.middleSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+  
+    h3{
+        margin-bottom: 15px;
+    }
+}
+.buttonSection{
+    width: 100%;
+    height: 350px;
+    flex-shrink: 0;
+    
+    margin: 0 auto;
+    border-radius: 4px;
+    background: var(--grey-3);
+    
+    overflow-y: auto;
+    
+}

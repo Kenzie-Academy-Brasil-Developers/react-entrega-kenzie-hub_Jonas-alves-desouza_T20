@@ -1,11 +1,11 @@
-import { Button } from './Button';
-import { Input } from './forms/inputs/InputDefault';
-import { InputPassword } from './forms/inputs/InputPassword';
-import { LoginForm } from './forms/LoginForm';
-import { RegisterForm } from './forms/RegisterForm';
-import { NotifySucess } from './notyfys/NotifSucesss/index.';
-import { NotifyError } from './notyfys/NotyError';
-import { ListTechology } from './ListTechnology';
+import { Button } from './Button' 
+import { Input } from './forms/inputs/InputDefault' 
+import { InputPassword } from './forms/inputs/InputPassword' 
+import { LoginForm } from './forms/LoginForm' 
+import { RegisterForm } from './forms/RegisterForm' 
+import { NotifySucess } from './notyfys/NotifSucesss/index.' 
+import { NotifyError } from './notyfys/NotyError' 
+import { ListTechology } from './ListTechnology' 
 
 export { 
     Button, 

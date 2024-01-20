@@ -1,7 +1,11 @@
-import { useContext, useState } from "react"
-import { Button } from "../../Button"
-import { TechnologyContext } from "../../../../providers"
-import { EditTechModal } from "../../modals/EditTechModal"
+import { useContext, useState } from 'react'
+import { BiPencil, BiTrash } from 'react-icons/bi'
+
+import style from './style.module.scss'
+
+import { Button } from '../../Button'
+import { TechnologyContext } from '../../../../providers'
+import { EditTechModal } from '../../modals/EditTechModal'
 
 export const TechCard = ({ tech }) => {
     const [ isOpen, setIsOpen ] = useState(false)
@@ -9,26 +13,32 @@ export const TechCard = ({ tech }) => {
 
     return(
         <li>
-            <div>
-                <h4 className="title" >{tech.title}</h4>
-                <p className="paragraph light">{tech.status}</p>
+            <div className={`${style.cardContainer}`}>
                 <div>
+                    <h4 className='title light' >{tech.title}</h4>
+                </div>
+                <div className={`${style.sectionEditTech}`}>
+                    <p className='paragraph light'>{tech.status}</p>
                     <Button 
-                        className="paragraph light"
                         onClick={()=> {
-
                             setIsOpen(true)
                             return setEditTech(tech)
                         }}
                     >
-                        Editar
+                        <BiPencil
+                            size={18}
+                            color='F8F9FA' 
+                        />
                     </Button>
                     <Button 
-                        className="paragraph light"
                         onClick={() => techDelete(tech.id)}
                     >
-                        Deletar
+                        <BiTrash
+                            size={18}
+                            color='F8F9FA' 
+                        />
                     </Button>
+                
                 </div>
             </div>
             {

@@ -1,8 +1,8 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react' 
 
 import { NotifyError, NotifySucess } from '../components/fragments/index'
-import { api } from '../services';
-import { UserContext } from './UserContext';
+import { api } from '../services'
+import { UserContext } from './UserContext'
 
 export const TechnologyContext = createContext([])
 

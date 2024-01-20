@@ -9,7 +9,7 @@ export const NotFoundPage = () => {
                 <div className={style.headerBox}>
                     <img src={Logo} alt='Logo Kenzie Hub ' />
                     <Link
-                        className='typoButton smallerLetter center button smaller ' 
+                        className='typoButton middle center button' 
                         to='/'>
                         Voltar
                     </Link>

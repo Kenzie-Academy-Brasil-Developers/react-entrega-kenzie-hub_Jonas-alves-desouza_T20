@@ -15,11 +15,16 @@
         height: 48px;
         padding: 0px 22.334px;
     }
-    &.smaller{
+    &.middle{
         width: 48px;
         height: 32px;
         padding: 0px 16.243px;
 
+        background: var(--grey-3);
+    }
+    &.smaller{
+        width: 32px;
+        height: 32px;
         background: var(--grey-3);
     }
 

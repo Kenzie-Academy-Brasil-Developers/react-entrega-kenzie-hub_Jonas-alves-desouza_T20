@@ -8,7 +8,7 @@ export const InputPassword = forwardRef(({ label, error, ...rest }, ref) => {
 
         <div>
 
-            <label className='typoLabel label' >{label}</label>
+            <label className='typoLabel' >{label}</label>
 
             <div>
                 <input
