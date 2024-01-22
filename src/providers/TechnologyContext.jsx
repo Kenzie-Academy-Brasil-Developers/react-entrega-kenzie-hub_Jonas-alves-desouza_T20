@@ -7,6 +7,10 @@ import { UserContext } from './UserContext'
 export const TechnologyContext = createContext([])
 
 export const TechnologyProvider = ({ children }) => {
+
+    const token = localStorage.getItem('@TOKEN')
+    const headers = { headers: { Authorization: `Bearer ${token}` } }
+
     const { techList, setTechList } = useContext(UserContext)
     const [ editTech, setEditTech ] = useState(null)
 
@@ -15,13 +19,7 @@ export const TechnologyProvider = ({ children }) => {
     const techRegister = async (payLoad, setLoading)=>{
         try {
             setLoading(true)
-            const token = localStorage.getItem('@TOKEN')
-
-            const { data } = await api.post('/users/techs', payLoad, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
+            const { data } = await api.post('/users/techs', payLoad, { ...headers })
             
             setTechList( [ ...techList, data ] )
             NotifySucess('Tecnologia cadastrada com sucesso!')
@@ -37,11 +35,8 @@ export const TechnologyProvider = ({ children }) => {
             setLoading(true)
             const token = localStorage.getItem('@TOKEN')
 
-            const { data } = await api.put(`/users/techs/${editTech.id}`, payload, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
+            const { data } = await api.put(`/users/techs/${editTech.id}`,
+            payload, { ...headers })
 
             const newTechList = techList.map(tech =>{
                 if(tech.id === editTech.id){
@@ -61,12 +56,7 @@ export const TechnologyProvider = ({ children }) => {
 
     const techDelete = async (techId) => {
         try {
-            const token = localStorage.getItem('@TOKEN')
-            await api.delete(`/users/techs/${techId}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                 },
-            })
+            await api.delete(`/users/techs/${techId}`, { ...headers })
             const newTechList = techList.filter((tech) => tech.id !== techId)
             setTechList(newTechList)
             NotifySucess('Tecnologia excluida com sucesso!')

@@ -12,7 +12,7 @@ export const UserProvider = ({children}) => {
     const localToken = localStorage.getItem('@TOKEN')
     const [token, setToken] = useState(localToken ? localToken : '')
     const [user, setUser] = useState(null)
-    const [ techList, setTechList ] = useState([])
+    const [techList, setTechList] = useState([])
     
     const headers = { headers: { Authorization: `Bearer ${token}` } }
     
@@ -21,8 +21,7 @@ export const UserProvider = ({children}) => {
     const pathName = window.location.pathname
     
     useEffect(() => {
-        const loadUser = async () => {
-            if(!token) return 
+        const loadUser = async () => {    
             try {
                 setLoading(true)
                 const { data } = await api.get('/profile', { ...headers }) 
