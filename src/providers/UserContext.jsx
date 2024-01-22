@@ -12,6 +12,7 @@ export const UserProvider = ({children}) => {
     const localToken = localStorage.getItem('@TOKEN')
     const [token, setToken] = useState(localToken ? localToken : '')
     const [user, setUser] = useState(null)
+    const [ techList, setTechList ] = useState([])
     
     const headers = { headers: { Authorization: `Bearer ${token}` } }
     
@@ -26,6 +27,7 @@ export const UserProvider = ({children}) => {
                 setLoading(true)
                 const { data } = await api.get('/profile', { ...headers }) 
                 setUser(data)
+                setTechList(data.techs)
                 navigate(pathName)              
             } catch (error) {
                 console.log(error)                
@@ -45,6 +47,7 @@ export const UserProvider = ({children}) => {
             localStorage.setItem('@TOKEN', data.token)
             setToken(data.token)
             setUser(data.user)
+            setTechList(data.user.techs)
             
             reset()
             NotifySucess('Login Realizado com sucesso!')
@@ -81,7 +84,15 @@ export const UserProvider = ({children}) => {
     
 
     return(
-        <UserContext.Provider value={{ userLogin, userLogout, userRegister, user, loading }}>
+        <UserContext.Provider value={{ 
+            userLogin, 
+            userLogout, 
+            userRegister, 
+            user, 
+            loading,
+            techList, 
+            setTechList 
+            }}>
             {children}
         </UserContext.Provider>
     )

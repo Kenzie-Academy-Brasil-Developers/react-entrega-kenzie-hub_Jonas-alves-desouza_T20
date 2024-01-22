@@ -7,26 +7,23 @@ import { UserContext } from './UserContext'
 export const TechnologyContext = createContext([])
 
 export const TechnologyProvider = ({ children }) => {
-    const { user } = useContext(UserContext)
-    const [ techList, setTechList ] = useState([])
+    const { techList, setTechList } = useContext(UserContext)
     const [ editTech, setEditTech ] = useState(null)
 
 
   
-    const techRegister = async (payLoad, setLoading, reset)=>{
+    const techRegister = async (payLoad, setLoading)=>{
         try {
             setLoading(true)
-            const newTech = { ...payLoad, techs: user}
             const token = localStorage.getItem('@TOKEN')
 
-            const { data } = await api.post('/users/techs', newTech, {
+            const { data } = await api.post('/users/techs', payLoad, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             })
             
-            setTechList(...techList, data)
-            reset()
+            setTechList( [ ...techList, data ] )
             NotifySucess('Tecnologia cadastrada com sucesso!')
         } catch (error) {
             NotifyError('Infelizmente algo deu errado! ')

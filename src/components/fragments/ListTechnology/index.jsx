@@ -8,7 +8,7 @@ import { Button } from '../Button'
 import { TechCard } from './TechCard'
 
 export const ListTechology = ({ setIsOpen }) => {
-    const { user } = useContext(UserContext)
+    const { user, techList } = useContext(UserContext)
 
     return(
         <div>
@@ -28,7 +28,7 @@ export const ListTechology = ({ setIsOpen }) => {
                 className={`${style.buttonSection}`}>
                 <ul className='containerDefault' >
                     {
-                        user.techs.map(tech => (
+                        techList.map(tech => (
                             <TechCard 
                             key={tech.id} 
                             tech={tech}
